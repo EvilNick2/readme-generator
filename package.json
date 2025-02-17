@@ -1,8 +1,20 @@
 {
-  "name": "readme-generator",
+  "name": "evilnick2-readme-generator",
   "displayName": "README Generator",
   "description": "This will generate a GitHub README file either via provided template or a custom defined user template",
-  "version": "0.0.1",
+	"publisher": "evilnick2",
+	"author": "EvilNick2",
+	"license": "MIT",
+	"icon": "readme-generator-icon.png",
+	"version": "1.0.0",
+	"homepage": "https://github.com/EvilNick2/readme-generator",
+	"bugs": {
+		"url": "https://github.com/EvilNick2/readme-generator/issues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/EvilNick2/readme-generator.git"
+	},
   "engines": {
     "vscode": "^1.97.0"
   },
@@ -14,10 +26,61 @@
   "contributes": {
     "commands": [
       {
-        "command": "readme-generator.helloWorld",
-        "title": "Hello World"
+        "command": "readme-generator.generateREADME",
+        "title": "Generate README.md"
       }
-    ]
+    ],
+    "configuration": {
+			"title": "README Generator",
+			"properties": {
+				"readme.generator.settings.github": {
+					"type": "string",
+					"description": "Your GitHub username"
+				},
+				"readme.generator.settings.name": {
+					"type": "string",
+					"description": "Your name"
+				},
+				"readme.generator.settings.lang": {
+					"type": "string",
+					"enum": [
+						"en",
+						"pt-BR"
+					],
+					"default": "en",
+					"description": "The default language of the readme"
+				},
+				"readme.generator.settings.templateType": {
+					"type": "string",
+					"enum": [
+						"default",
+						"full",
+						"custom"
+					],
+					"default": "default",
+					"description": "Type of README template that is used"
+				},
+				"readme.generator.settings.customTemplatePath": {
+					"type": "string",
+					"description": "Path to the custom README template (local file or remote URL)"
+				}
+			}
+		},
+		"menus": {
+			"commandPalette": [
+				{
+					"command": "readme-generator.generateREADME",
+					"when": "explorerResourceIsFolder"
+				}
+			],
+			"explorer/context": [
+				{
+					"command": "readme-generator.generateREADME",
+					"when": "explorerResourceIsFolder",
+					"group": "EditorConfig@1"
+				}
+			]
+		}
   },
   "scripts": {
     "vscode:prepublish": "npm run package",
@@ -31,17 +94,21 @@
     "test": "vscode-test"
   },
   "devDependencies": {
-    "@types/vscode": "^1.97.0",
     "@types/mocha": "^10.0.10",
+    "@types/mustache": "^4.2.5",
     "@types/node": "20.x",
+    "@types/vscode": "^1.97.0",
     "@typescript-eslint/eslint-plugin": "^8.22.0",
     "@typescript-eslint/parser": "^8.22.0",
-    "eslint": "^9.19.0",
-    "typescript": "^5.7.3",
-    "ts-loader": "^9.5.2",
-    "webpack": "^5.97.1",
-    "webpack-cli": "^6.0.1",
     "@vscode/test-cli": "^0.0.10",
-    "@vscode/test-electron": "^2.4.1"
+    "@vscode/test-electron": "^2.4.1",
+    "eslint": "^9.19.0",
+    "ts-loader": "^9.5.2",
+    "typescript": "^5.7.3",
+    "webpack": "^5.97.1",
+    "webpack-cli": "^6.0.1"
+  },
+  "dependencies": {
+    "mustache": "^4.2.0"
   }
 }

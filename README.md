@@ -1,71 +1,60 @@
-# readme-generator README
+<h1>README Generator</h1>
 
-This is the README for your extension "readme-generator". After writing up a brief description, we recommend including the following sections.
+Easily create a README file easily without any fuss
+
+<br>
+
+<div align="center">
+  <img src="./.github/README-generator.gif" alt="README Generator Gif"/>
+</div>
+
+<br>
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+- Includes one template based on this [article](https://blog.rocketseat.com.br/como-fazer-um-bom-readme);
+- Support En and pt-BR languages;
+- Generates title and badges by reading the name of the project on the package.json or the root folder;
+- Generates a link to your Github profile;
 
-For example if there is an image subfolder under your extension project workspace:
+## Settings
 
-\!\[feature X\]\(images/feature-x.png\)
+You can add these settings in your settings.json
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+```js
+ "readme.generator.settings.github": "YOUR GITHUB USERNAME"
 
-## Requirements
+ "readme.generator.settings.name": "YOUR GITHUB NAME"
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+ "readme.generator.settings.lang": "THE TEMPLATE LANGUAGE" // Default en
 
-## Extension Settings
+ "readme.generator.settings.templateType": "TYPE OF TEMPLATE" // Default default
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+ "readme.generator.settings.customTemplatePath": "PATH TO CUSTOM TEMPLATE" // Only used if templateType is "Custom"
+```
 
-For example:
+<br>
 
-This extension contributes the following settings:
+* `readme.generator.settings.github`: To add links for you Github profile and to get your repository badges;
+* `readme.generator.settings.name`: To put your name on the file end;
+* `readme.generator.settings.lang`: The template language;
+* `readme.generator.settings.templateType`: Type of template to use either default, full, and custom;
+* `readme.generator.settings.customTemplatePath`: Either local path or remote path to be used if templateType is custom;
 
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
+## Template
 
-## Known Issues
+- App gif/image;
+- Title;
+- Badges;
+- Status;
+- Menu content;
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+- sections
+  - About your project;
+  - Features;
+  - Technologies;
+  - Requirements;
+  - Starting;
+  - License;
 
-## Release Notes
-
-Users appreciate release notes as you update your extension.
-
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
----
-
-## Following extension guidelines
-
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
-
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+To see the markdown template, [click here](./templates/en/default.md);
